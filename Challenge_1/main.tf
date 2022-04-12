@@ -129,7 +129,6 @@ resource "aws_secretsmanager_secret" "ec2_keypair_secret" {
 resource "aws_secretsmanager_secret_version" "ec2_keypair_secret_value" {
   secret_id     = aws_secretsmanager_secret.ec2_keypair_secret.id
   secret_string = tls_private_key.my_key.private_key_pem
-  #secret_string = aws_key_pair.ec2_keypair.public_key
 }
 
 resource "aws_main_route_table_association" "custom_rt_a" {
