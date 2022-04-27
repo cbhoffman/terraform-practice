@@ -1,8 +1,8 @@
 resource "aws_instance" "custom_instance" {
-  ami           = data.aws_ami.most_recent_ami.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.custom_subnet.id
-  key_name      = aws_key_pair.ec2_keypair.key_name
+  ami                    = data.aws_ami.most_recent_ami.id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.custom_subnet.id
+  key_name               = aws_key_pair.ec2_keypair.key_name
   vpc_security_group_ids = [aws_security_group.ssh_traffic.id]
 
   tags = {
