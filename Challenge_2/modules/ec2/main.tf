@@ -6,6 +6,7 @@ resource "aws_instance" "custom_instance" {
   vpc_security_group_ids = var.security_group_ids
   user_data              = <<EOF
   #!/bin/bash 
+  sudo useradd -m "${var.instance_username}"
   sudo amazon-linux-extras install nginx1 -y
   sudo echo "<h2>Hello World!</h2>" > /usr/share/nginx/html/index.html
   sudo systemctl start nginx.service
